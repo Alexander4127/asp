@@ -27,18 +27,6 @@
         }
       }
     },
-    "val": {
-      "batch_size": 32,
-      "num_workers": 0,
-      "dataset": {
-        "type": "ASVSpoof2019Dataset",
-        "args": {
-          "part": "dev",
-          "cut_audio": 64000,
-          "determ": true
-        }
-      }
-    },
     "test": {
       "batch_size": 32,
       "num_workers": 0,
@@ -47,7 +35,8 @@
         "args": {
           "part": "eval",
           "cut_audio": 64000,
-          "determ": true
+          "determ": true,
+          "limit": 5000
         }
       }
     }
@@ -82,7 +71,7 @@
     "visualize": "wandb",
     "wandb_project": "asp_project",
     "wandb_name": "1_initial",
-    "len_epoch": 1000,
+    "len_epoch": 2500,
     "log_step": 200
   }
 }
