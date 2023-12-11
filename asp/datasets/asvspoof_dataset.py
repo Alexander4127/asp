@@ -2,7 +2,7 @@ import json
 import numpy as np
 from pathlib import Path
 import random
-import soundfile as sf
+import torchaudio
 import time
 from tqdm import tqdm
 from typing import Optional
@@ -53,7 +53,7 @@ class ASVSpoof2019Dataset(object):
 
     def __getitem__(self, item):
         d = self.index[item]
-        wav, _ = sf.read(d["flac_file"])
+        wav = torchaudio.load(d["flac_file"])[0].squeeze()
         assert len(wav.shape) == 1, f'{wav.shape}'
         if self.cut_audio is not None:
             start_pos = np.random.randint(0, max(0, len(wav) - self.cut_audio) + 1) if not self.determ else 0
