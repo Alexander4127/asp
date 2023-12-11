@@ -1,5 +1,5 @@
 {
-  "name": "one_batch_test",
+  "name": "1_initial",
   "n_gpu": 1,
   "preprocessing": {
     "sr": 16000
@@ -8,8 +8,8 @@
     "type": "RawNet2Model",
     "args": {
       "sinc_params": {
-        "out_channels": 1024,
-        "kernel_size": 129
+        "out_channels": 128,
+        "kernel_size": 1024
       },
       "res1_channels": 20,
       "res2_channels": 128
@@ -17,7 +17,7 @@
   },
   "data": {
     "train": {
-      "batch_size": 16,
+      "batch_size": 32,
       "num_workers": 5,
       "dataset": {
         "type": "ASVSpoof2019Dataset",
@@ -28,24 +28,26 @@
       }
     },
     "val": {
-      "batch_size": 16,
+      "batch_size": 32,
       "num_workers": 5,
       "dataset": {
         "type": "ASVSpoof2019Dataset",
         "args": {
           "part": "dev",
-          "limit": 2000
+          "limit": 2000,
+          "cut_audio": 64000
         }
       }
     },
     "test": {
-      "batch_size": 16,
+      "batch_size": 32,
       "num_workers": 5,
       "dataset": {
         "type": "ASVSpoof2019Dataset",
         "args": {
           "part": "eval",
-          "limit": 2000
+          "limit": 2000,
+          "cut_audio": 64000
         }
       }
     }
@@ -79,7 +81,7 @@
     "early_stop": 100,
     "visualize": "wandb",
     "wandb_project": "asp_project",
-    "wandb_name": "one_batch_test",
+    "wandb_name": "1_initial",
     "log_step": 100
   }
 }
