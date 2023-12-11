@@ -1,6 +1,5 @@
 import argparse
 import collections
-import itertools
 import warnings
 
 import numpy as np

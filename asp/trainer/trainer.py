@@ -165,6 +165,7 @@ class Trainer(BaseTrainer):
             self.writer.add_histogram(name, p, bins="auto")
         # compute EER metrics
         eer_res = self.eer_metric(np.array(targets).astype(bool), np.array(probs))
+        self.writer.add_scalar("eer", eer_res[0])
         return self.evaluation_metrics.result() | {"eer": eer_res[0], "eer_thr": eer_res[1]}
 
     def process_batch(self, batch, is_train: bool, metrics: MetricTracker):
