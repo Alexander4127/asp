@@ -75,10 +75,10 @@ class SincConv(nn.Module):
         hz = self.to_hz(mel)
 
         # filter lower frequency (out_channels, 1)
-        self.low_hz_ = nn.Parameter(torch.Tensor(hz[:-1]).view(-1, 1))
+        self.low_hz_ = torch.Tensor(hz[:-1]).view(-1, 1)
 
         # filter frequency band (out_channels, 1)
-        self.band_hz_ = nn.Parameter(torch.Tensor(np.diff(hz)).view(-1, 1))
+        self.band_hz_ = torch.Tensor(np.diff(hz)).view(-1, 1)
 
         # Hamming window
         # self.window_ = torch.hamming_window(self.kernel_size)
