@@ -48,7 +48,6 @@ class RawNet2Model(BaseModel):
         self.gru = nn.GRU(input_size=out_channels, hidden_size=gru_hidden, num_layers=gru_layers, batch_first=True)
 
         self.head = nn.Sequential(
-            nn.Linear(in_features=gru_hidden, out_features=gru_hidden),
             nn.LeakyReLU(),
             nn.Linear(in_features=gru_hidden, out_features=2)
         )
