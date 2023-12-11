@@ -82,6 +82,6 @@
     "visualize": "wandb",
     "wandb_project": "asp_project",
     "wandb_name": "1_initial",
-    "len_epoch": 2500
+    "len_epoch": 1000
   }
 }
