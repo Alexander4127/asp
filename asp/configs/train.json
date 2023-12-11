@@ -17,7 +17,7 @@
   },
   "data": {
     "train": {
-      "batch_size": 32,
+      "batch_size": 16,
       "num_workers": 5,
       "dataset": {
         "type": "ASVSpoof2019Dataset",
@@ -28,7 +28,7 @@
       }
     },
     "val": {
-      "batch_size": 32,
+      "batch_size": 16,
       "num_workers": 5,
       "dataset": {
         "type": "ASVSpoof2019Dataset",
@@ -39,7 +39,7 @@
       }
     },
     "test": {
-      "batch_size": 32,
+      "batch_size": 16,
       "num_workers": 5,
       "dataset": {
         "type": "ASVSpoof2019Dataset",
