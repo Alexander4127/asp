@@ -52,7 +52,7 @@ class ASVSpoof2019Dataset(object):
         return len(self.index)
 
     def __getitem__(self, item):
-        d = self.index[item]
+        d = self.index[item].copy()
         wav = torchaudio.load(d["flac_file"])[0].squeeze()
         assert len(wav.shape) == 1, f'{wav.shape}'
         if self.cut_audio is not None:
