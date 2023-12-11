@@ -154,8 +154,9 @@ class Trainer(BaseTrainer):
                     is_train=False,
                     metrics=self.evaluation_metrics,
                 )
-                probs.extend(list(batch["pred"][:, 1].cpu().numpy()))
-                targets.extend(list(batch["target"].cpu().numpy()))
+                probs.extend(list(batch["pred"][:, 1].detach().cpu().numpy()))
+                targets.extend(list(batch["target"].detach().cpu().numpy()))
+
             self.writer.set_step(epoch * self.len_epoch, part)
             self._log_scalars(self.evaluation_metrics)
             self._log_audio(**batch)
@@ -185,9 +186,11 @@ class Trainer(BaseTrainer):
         metrics.update("loss", batch["loss"].item())
         return batch
 
-    def _log_audio(self, wave, **batch):
+    def _log_audio(self, wave, target, pred, **batch):
         idx = np.random.choice(np.arange(len(wave)))
         self.writer.add_audio("audio", wave[idx], sample_rate=self.config["preprocessing"]["sr"])
+        self.writer.add_text("target", "bonafide" if target[idx] > 0 else "spoof")
+        self.writer.add_text("pred", str(list(pred[idx].detach().cpu().numpy())))
 
     def _progress(self, batch_idx):
         base = "[{}/{} ({:.0f}%)]"

@@ -29,20 +29,19 @@
     },
     "val": {
       "batch_size": 32,
-      "num_workers": 5,
+      "num_workers": 0,
       "dataset": {
         "type": "ASVSpoof2019Dataset",
         "args": {
           "part": "dev",
           "cut_audio": 64000,
-          "determ": true,
-          "limit": 2000
+          "determ": true
         }
       }
     },
     "test": {
       "batch_size": 32,
-      "num_workers": 5,
+      "num_workers": 0,
       "dataset": {
         "type": "ASVSpoof2019Dataset",
         "args": {
