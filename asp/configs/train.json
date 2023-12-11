@@ -34,8 +34,8 @@
         "type": "ASVSpoof2019Dataset",
         "args": {
           "part": "dev",
-          "limit": 2000,
-          "cut_audio": 64000
+          "cut_audio": 64000,
+          "determ": true
         }
       }
     },
@@ -46,8 +46,8 @@
         "type": "ASVSpoof2019Dataset",
         "args": {
           "part": "eval",
-          "limit": 2000,
-          "cut_audio": 64000
+          "cut_audio": 64000,
+          "determ": true
         }
       }
     }
@@ -82,6 +82,6 @@
     "visualize": "wandb",
     "wandb_project": "asp_project",
     "wandb_name": "1_initial",
-    "log_step": 100
+    "len_epoch": 2500
   }
 }

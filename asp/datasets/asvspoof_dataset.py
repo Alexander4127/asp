@@ -12,11 +12,12 @@ from asp.logger import logger
 
 
 class ASVSpoof2019Dataset(object):
-    def __init__(self, part: str, cut_audio: Optional[int] = None, data_dir=None, limit=None):
+    def __init__(self, part: str, cut_audio: Optional[int] = None, determ: bool = False, data_dir=None, limit=None):
         self._data_dir = Path(data_dir) if data_dir is not None else ROOT_PATH / "data"
         self._index_dir = ROOT_PATH / "asp" / "datasets"
         self.index = self._get_or_load_index(part)
         self.cut_audio = cut_audio
+        self.determ = determ
         if limit is not None:
             random.seed(42)
             random.shuffle(self.index)
@@ -55,7 +56,7 @@ class ASVSpoof2019Dataset(object):
         wav, _ = sf.read(d["flac_file"])
         assert len(wav.shape) == 1, f'{wav.shape}'
         if self.cut_audio is not None:
-            start_pos = np.random.randint(0, max(0, len(wav) - self.cut_audio) + 1)
+            start_pos = np.random.randint(0, max(0, len(wav) - self.cut_audio) + 1) if not self.determ else 0
             d["wave"] = wav[start_pos:start_pos + self.cut_audio]
         else:
             d["wave"] = wav
