@@ -77,7 +77,7 @@
     "save_dir": "saved/",
     "save_period": 5,
     "verbosity": 2,
-    "monitor": "min val_loss",
+    "monitor": "min dev_loss",
     "early_stop": 100,
     "visualize": "wandb",
     "wandb_project": "asp_project",
