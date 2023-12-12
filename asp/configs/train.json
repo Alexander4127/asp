@@ -8,7 +8,7 @@
     "type": "RawNet2Model",
     "args": {
       "sinc_params": {
-        "out_channels": 128,
+        "out_channels": 20,
         "kernel_size": 1024
       },
       "res1_channels": 20,
@@ -27,20 +27,19 @@
         }
       }
     },
-    "val": {
+    "dev": {
       "batch_size": 32,
       "num_workers": 5,
       "dataset": {
         "type": "ASVSpoof2019Dataset",
         "args": {
-          "part": "eval",
+          "part": "dev",
           "cut_audio": 64000,
-          "determ": true,
-          "limit": 5000
+          "determ": true
         }
       }
     },
-    "test": {
+    "eval": {
       "batch_size": 32,
       "num_workers": 5,
       "dataset": {
