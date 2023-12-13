@@ -1,5 +1,5 @@
 {
-  "name": "1_initial",
+  "name": "10_low_band_50",
   "n_gpu": 1,
   "preprocessing": {
     "sr": 16000
@@ -9,7 +9,8 @@
     "args": {
       "sinc_params": {
         "out_channels": 20,
-        "kernel_size": 1024
+        "kernel_size": 1024,
+        "min_band_hz": 50
       },
       "res1_channels": 20,
       "res2_channels": 128
@@ -81,7 +82,7 @@
     "early_stop": 100,
     "visualize": "wandb",
     "wandb_project": "asp_project",
-    "wandb_name": "1_initial",
+    "wandb_name": "10_low_band_50",
     "len_epoch": 2500,
     "log_step": 200
   }
