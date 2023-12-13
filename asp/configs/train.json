@@ -22,6 +22,7 @@
       "dataset": {
         "type": "ASVSpoof2019Dataset",
         "args": {
+          "data_dir": "/kaggle/input/asvpoof-2019-dataset/LA",
           "part": "train",
           "cut_audio": 64000
         }
@@ -33,6 +34,7 @@
       "dataset": {
         "type": "ASVSpoof2019Dataset",
         "args": {
+          "data_dir": "/kaggle/input/asvpoof-2019-dataset/LA",
           "part": "dev",
           "cut_audio": 64000,
           "determ": true
@@ -45,6 +47,7 @@
       "dataset": {
         "type": "ASVSpoof2019Dataset",
         "args": {
+          "data_dir": "/kaggle/input/asvpoof-2019-dataset/LA",
           "part": "eval",
           "cut_audio": 64000,
           "determ": true
