@@ -61,9 +61,7 @@
   },
   "loss": {
     "type": "RawNet2Loss",
-    "args": {
-      "weight": [0.1, 0.9]
-    }
+    "args": {}
   },
   "lr_scheduler": {
     "type": "StepLR",
