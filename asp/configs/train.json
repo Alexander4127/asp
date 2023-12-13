@@ -1,5 +1,5 @@
 {
-  "name": "1_initial",
+  "name": "2_wo_abs",
   "n_gpu": 1,
   "preprocessing": {
     "sr": 16000
@@ -81,7 +81,7 @@
     "early_stop": 100,
     "visualize": "wandb",
     "wandb_project": "asp_project",
-    "wandb_name": "1_initial",
+    "wandb_name": "2_wo_abs",
     "len_epoch": 2500,
     "log_step": 200
   }
