@@ -6,7 +6,7 @@ from typing import Optional, Sequence
 class RawNet2Loss(nn.Module):
     def __init__(self, weight: Optional[Sequence] = None):
         super().__init__()
-        self.loss = nn.CrossEntropyLoss(weight=torch.tensor(weight))
+        self.loss = nn.CrossEntropyLoss(weight=torch.tensor(weight) if weight is not None else weight)
 
     def forward(self, pred, target, **kwargs):
         return self.loss(pred, target)
