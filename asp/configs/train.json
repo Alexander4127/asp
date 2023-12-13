@@ -1,5 +1,5 @@
 {
-  "name": "1_initial",
+  "name": "2_one_layer_gru",
   "n_gpu": 1,
   "preprocessing": {
     "sr": 16000
@@ -12,7 +12,8 @@
         "kernel_size": 1024
       },
       "res1_channels": 20,
-      "res2_channels": 128
+      "res2_channels": 128,
+      "gru_layers": 1
     }
   },
   "data": {
@@ -81,7 +82,7 @@
     "early_stop": 100,
     "visualize": "wandb",
     "wandb_project": "asp_project",
-    "wandb_name": "1_initial",
+    "wandb_name": "2_one_layer_gru",
     "len_epoch": 2500,
     "log_step": 200
   }
