@@ -57,7 +57,7 @@ class RawNet2Model(BaseModel):
         out = x.unsqueeze(1)
 
         out = self.sinc_layer(out)
-        out = self.pool1(torch.abs(out))
+        out = self.pool1(out)
         out = self.batch_norm1(out)
 
 
