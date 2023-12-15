@@ -37,7 +37,7 @@ python3 train.py -c nv/configs/train.json -r saved/models/final/<run_id>/<any_ch
 Checkpoint should be located in `default_test_model` directory. Pretrained model can be downloaded by running python code
 ```python3
 import gdown
-gdown.download("https://drive.google.com/uc?id=", "default_test_model/checkpoint.pth")
+gdown.download("https://drive.google.com/uc?id=1HBDp__V5AGJacbhnaoQiC4g0wxizEFWa", "default_test_model/checkpoint.pth")
 ```
 
 Model evaluation is executed by command
