@@ -1,5 +1,5 @@
 {
-  "name": "1_initial",
+  "name": "11_try_best",
   "n_gpu": 1,
   "preprocessing": {
     "sr": 16000
@@ -22,6 +22,7 @@
       "dataset": {
         "type": "ASVSpoof2019Dataset",
         "args": {
+          "data_dir": "/kaggle/input/asvpoof-2019-dataset/LA",
           "part": "train",
           "cut_audio": 64000
         }
@@ -33,6 +34,7 @@
       "dataset": {
         "type": "ASVSpoof2019Dataset",
         "args": {
+          "data_dir": "/kaggle/input/asvpoof-2019-dataset/LA",
           "part": "dev",
           "cut_audio": 64000,
           "determ": true
@@ -45,6 +47,7 @@
       "dataset": {
         "type": "ASVSpoof2019Dataset",
         "args": {
+          "data_dir": "/kaggle/input/asvpoof-2019-dataset/LA",
           "part": "eval",
           "cut_audio": 64000,
           "determ": true
@@ -55,8 +58,7 @@
   "optimizer": {
     "type": "Adam",
     "args": {
-      "lr": 1e-4,
-      "weight_decay": 0.0001
+      "lr": 1e-4
     }
   },
   "loss": {
@@ -81,7 +83,7 @@
     "early_stop": 100,
     "visualize": "wandb",
     "wandb_project": "asp_project",
-    "wandb_name": "1_initial",
+    "wandb_name": "11_try_best",
     "len_epoch": 2500,
     "log_step": 200
   }
