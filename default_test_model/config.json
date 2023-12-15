@@ -1,0 +1,88 @@
+{
+  "name": "test",
+  "n_gpu": 1,
+  "preprocessing": {
+    "sr": 16000
+  },
+  "arch": {
+    "type": "RawNet2Model",
+    "args": {
+      "sinc_params": {
+        "out_channels": 20,
+        "kernel_size": 1024
+      },
+      "res1_channels": 20,
+      "res2_channels": 128
+    }
+  },
+  "data": {
+    "train": {
+      "batch_size": 32,
+      "num_workers": 5,
+      "dataset": {
+        "type": "ASVSpoof2019Dataset",
+        "args": {
+          "part": "train",
+          "cut_audio": 64000
+        }
+      }
+    },
+    "dev": {
+      "batch_size": 32,
+      "num_workers": 5,
+      "dataset": {
+        "type": "ASVSpoof2019Dataset",
+        "args": {
+          "part": "dev",
+          "cut_audio": 64000,
+          "determ": true
+        }
+      }
+    },
+    "eval": {
+      "batch_size": 32,
+      "num_workers": 5,
+      "dataset": {
+        "type": "ASVSpoof2019Dataset",
+        "args": {
+          "part": "eval",
+          "cut_audio": 64000,
+          "determ": true
+        }
+      }
+    }
+  },
+  "optimizer": {
+    "type": "Adam",
+    "args": {
+      "lr": 1e-4,
+      "weight_decay": 0.0001
+    }
+  },
+  "loss": {
+    "type": "RawNet2Loss",
+    "args": {
+      "weight": [0.1, 0.9]
+    }
+  },
+  "lr_scheduler": {
+    "type": "StepLR",
+    "args": {
+      "step_size": 1000,
+      "gamma": 0.999
+    }
+  },
+  "trainer": {
+    "epochs": 40,
+    "save_dir": "saved/",
+    "save_period": 3,
+    "verbosity": 2,
+    "monitor": "min dev_loss",
+    "early_stop": 100,
+    "visualize": "wandb",
+    "wandb_project": "asp_project",
+    "wandb_name": "test",
+    "len_epoch": 2500,
+    "log_step": 200
+  }
+}
