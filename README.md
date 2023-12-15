@@ -19,7 +19,7 @@ bash loader.sh
 
 ## Model training
 
-This project implements [RawNet2](https://arxiv.org/pdf/2011.01108.pdf) model for speech synthesis.
+This project implements [RawNet2](https://arxiv.org/pdf/2011.01108.pdf) model for anti-spoofing.
 
 To train model from scratch run
 ```shell
