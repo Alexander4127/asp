@@ -1,5 +1,5 @@
 {
-  "name": "11_try_best",
+  "name": "final",
   "n_gpu": 1,
   "preprocessing": {
     "sr": 16000
@@ -83,7 +83,7 @@
     "early_stop": 100,
     "visualize": "wandb",
     "wandb_project": "asp_project",
-    "wandb_name": "11_try_best",
+    "wandb_name": "final",
     "len_epoch": 2500,
     "log_step": 200
   }
